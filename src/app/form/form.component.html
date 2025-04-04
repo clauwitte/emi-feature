@@ -1,0 +1,49 @@
+<div class="form-wrapper-2">
+<div class="form-wrapper-3">
+  <div>
+    <mat-form-field floatLabel="always">
+      <mat-label>Loan Value</mat-label>
+      <input matInput type="number" class="example-right-align" placeholder="0" min="1" required [formControl]="loanValue"/>
+      <span matTextPrefix>€&nbsp;</span>
+    </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+  <mat-label>Interest rate</mat-label>
+  <input matInput type="number" class="example-right-align" min="1" max="99" required [formControl]="interestRate">
+  </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Term</mat-label>
+
+      <input matInput type="number" class="example-right-align" min="1" max="29" required [formControl]="loanTerm">
+    </mat-form-field>
+  </div>
+  <div>
+    @if (loanTerm.hasError('required') || loanTerm.hasError('min') || loanTerm.hasError('max')) {
+      <button mat-flat-button disabled (click)="calculate()">Berekenen</button>
+    } @else if (loanValue.hasError('required') || loanValue.hasError('min') || loanValue.hasError('max')) {
+      <button mat-flat-button disabled (click)="calculate()">Berekenen</button>
+    } @else if (interestRate.hasError('required') || interestRate.hasError('min') || interestRate.hasError('max')) {
+      <button mat-flat-button disabled (click)="calculate()">Berekenen</button>
+    }
+    @else {
+      <button mat-flat-button (click)="calculate()">Berekenen</button>
+    }
+  </div>
+</div>
+  <div>
+    <h3>
+      Amount to pay per month:
+    </h3>
+    <h1>
+      €{{ output }}
+    </h1>
+    @if (isError) {
+    <span>
+      {{ erroMessage }}
+    </span>
+    }
+  </div>
+</div>

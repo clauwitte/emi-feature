@@ -1,0 +1,26 @@
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: left;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.form-wrapper-2 {
+  display: flex;
+  margin-right: 100px;
+  justify-content: center;
+}
+
+.form-wrapper-3 {
+  margin-right: 50px;
+}
