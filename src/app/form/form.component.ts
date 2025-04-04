@@ -35,7 +35,6 @@ export class FormComponent {
     this.service.calculate(this.loanValue.value!, this.interestRate.value!, this.loanTerm.value!).subscribe({
       next: (res) => {
         this.output = res
-        console.log(this.output)
         this.isError = false
       },
       error: (err) => {
